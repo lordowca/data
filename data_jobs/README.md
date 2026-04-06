@@ -90,7 +90,7 @@ Z tych danych zostały powstały dwa zestawienia:
 - Top 5 najczęściej występujących umiejętności w ogłoszeniach w odniesieniu do mediany.
 
 Więcej szczegółów można zobaczyć w notebook'u:
-[4_salary_analysis.ipynb](4_salary_analysis.ipynb)
+[4_salary_analysis.ipynb](/data_jobs/4_salary_analysis.ipynb)
 
 ### Wynik
 
@@ -105,7 +105,7 @@ Więcej szczegółów można zobaczyć w notebook'u:
 
 ### Wyniki
 
-![Optymalne umiejętności dla analityka danych](images\optimal_skills.png)
+![Optymalne umiejętności dla analityka danych](/data_jobs/images/optimal_skills.png)
 
 ### Wnioski
 
