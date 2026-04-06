@@ -19,7 +19,7 @@ Więcej szczegółów można zobaczyć w notebook'u: [2_skill_demand.ipynb](2_sk
 
 ### Wynik
 
-![Wizualizacja kluczowych umiejętności](data\data_jobs\images\skill_demand.png)
+![Wizualizacja kluczowych umiejętności](/data_jobs/images/skill_demand.png)
 
 ### Wnioski
 
