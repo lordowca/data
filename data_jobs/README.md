@@ -15,7 +15,7 @@ Zestaw danych został zawężony do wierszy spełniających następujące warunk
 
 Dla każdego stanowiska wybrano pięć najczęściej występujących umiejętność.
 
-Więcej szczegółów można zobaczyć w notebook'u: [2_skill_demand.ipynb](2_skill_demand.ipynb)
+Więcej szczegółów można zobaczyć w notebook'u: [2_skill_demand.ipynb](/data_jobs/2_skill_demand.ipynb)
 
 ### Wynik
 
@@ -36,7 +36,7 @@ Zestaw danych został zawężony do wierszy spełniających następujące warunk
 Następnie dane zostały zgromadzone w postaci tabeli przestawnej, aby określić ilość ogłoszeń zawierających daną umiejętność w poszczególnym miesiącu. Dane zostały przeliczone na procent ogłoszeń zawierających daną umiejętność. Następnie wyniki zostały ograniczone do top 5 umiejętności.
 
 Więcej szczegółów można zobaczyć w notebook'u:
-[3_skill_trend.ipynb](\3_skill_trend.ipynb)
+[3_skill_trend.ipynb](/data_jobs/3_skill_trend.ipynb)
 
 ### Wynik
 
@@ -66,11 +66,11 @@ W 2023 roku najwięcej ogłoszeń pojawiło się dla tych sześciu stanowisk:
 Na podstawie tej listy zostały wybrane dane do sporządzenia zestawienia mediany zarobków.
 
 Więcej szczegółów można zobaczyć w notebook'u:
-[4_salary_analysis.ipynb](4_salary_analysis.ipynb)
+[4_salary_analysis.ipynb](/data_jobs/4_salary_analysis.ipynb)
 
 ### Wynik
 
-![Wizualizacja mediany zarobków dla top 6 stanowisk](/data_jons/images/top_6_median.png)
+![Wizualizacja mediany zarobków dla top 6 stanowisk](/data_jobs/images/top_6_median.png)
 
 ### Wnioski
 
