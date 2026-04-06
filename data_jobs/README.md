@@ -19,7 +19,7 @@ Więcej szczegółów można zobaczyć w notebook'u: [2_skill_demand.ipynb](2_sk
 
 ### Wynik
 
-![Wizualizacja kluczowych umiejętności](images\skill_demand.png)
+![Wizualizacja kluczowych umiejętności](/data_jobs/images/skill_demand.png)
 
 ### Wnioski
 
@@ -40,7 +40,7 @@ Więcej szczegółów można zobaczyć w notebook'u:
 
 ### Wynik
 
-![Wizualizacja trendów dla kluczowych umiejętności](images\skills_trend_DA.png)
+![Wizualizacja trendów dla kluczowych umiejętności](/data_jobs/images/skills_trend_DA.png)
 
 ### Wnioski
 
@@ -70,7 +70,7 @@ Więcej szczegółów można zobaczyć w notebook'u:
 
 ### Wynik
 
-![Wizualizacja mediany zarobków dla top 6 stanowisk](images\top_6_median.png)
+![Wizualizacja mediany zarobków dla top 6 stanowisk](/data_jons/images/top_6_median.png)
 
 ### Wnioski
 
@@ -94,7 +94,7 @@ Więcej szczegółów można zobaczyć w notebook'u:
 
 ### Wynik
 
-![Wizualizacja mediany zarobków dla top 5 umiejętności](images\top_5_skills_median.png)
+![Wizualizacja mediany zarobków dla top 5 umiejętności](/data_jobs/images/top_5_skills_median.png)
 
 ### Wnioski
 
