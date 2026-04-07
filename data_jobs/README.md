@@ -1,4 +1,4 @@
-# Analiza ofert pracy z 2023 roku dla stanowisk związanych z danmi.
+# Analiza ofert pracy z 2023 roku dla stanowisk związanych z danymi.
 
 ## 1. Jakie są najbardziej poszukiwane umiejętności dla trzech najpopularniejszych stanowisk?
 
@@ -23,8 +23,8 @@ Więcej szczegółów można zobaczyć w notebook'u: [2_skill_demand.ipynb](/dat
 
 ### Wnioski
 
-- dla Data Scientist i Data Engineer kluczową umiejętnością jest znajomość Pythona oraz SQL.
-- Data Analyst powinien znac dobrze SQL, tableau oraz Excela.
+- Dla Data Scientist i Data Engineer kluczową umiejętnością jest znajomość Pythona oraz SQL.
+- Data Analyst powinien znać dobrze SQL, tableau oraz Excela.
 
 ## 2. Jakie są trendy najpopularniejszych umiejętności dla analityka danych w 2023 roku?
 
@@ -101,7 +101,7 @@ Więcej szczegółów można zobaczyć w notebook'u:
 - Umiejętności niszowe pojawiają się najlepiej opłacanych ogłoszeniach.
 - Umiejętności najczęściej występujące są związane z językami programowania i wizualizacją danych.
 
-## 5. Jakie są najbardziej optymalne umiejętności dla analityka danych
+## 5. Jakie są najbardziej optymalne umiejętności dla analityka danych?
 
 ### Wyniki
 
