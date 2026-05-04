@@ -8,6 +8,13 @@ Celem tego ćwiczenia było utrwalenie wiedzy z zakresu SQL, tworzenia DW zgodni
 
 Dane do utworzenia Toy Store Data Warehouse zostały pobrane ze strony [Mavenan alytics](https://mavenanalytics.io/data-playground/toy-store-e-commerce-database).
 
+### Podsumowanie projektu
+
+Projekt składa się z 2 części:
+
+1. Data Warehouse, gdzie od podstaw opisuję i projektuję DW przy wykorzystaniu Medalion Architecture. Import surowych danych (bronze layer), transformacja i standaryzacja danych (silver layer) i przygotowanie danych w postaci widoków pod analizę (gold layer).
+2. Część analityczna, gdzie są zaprezentowane kluczowe wskaźniki efektywności (KPI) takie jak konwersja sesji na zamówienia (CR), trendy sesji i zamówień rok do roku (YOY) i inne. Dane to analizy są pobierane z utworzonego DW z golden layer.
+
 ## Tworzenia Toy Store Data Warehouse
 
 ### 1. Założenia projektu
@@ -92,7 +99,7 @@ Skrypt z procedury składowanej dla silver layer znajduje sie w pliku [proc_load
 
 #### d. Sprawdzenie danych
 
-Po wykonaniu procedury składowej zostało przeprowadzone sprawdzenie kolumn z kluczami głównymi (primary key) czy nie zawierają duplikatów lub wartości null dla tabel:
+Po wykonaniu procedury składowanej zostało przeprowadzone sprawdzenie kolumn z kluczami głównymi (primary key) czy nie zawierają duplikatów lub wartości null dla tabel:
 
 - silver.crm_orders
 - silver.crm_order_items
@@ -122,7 +129,7 @@ Na poniższym schemacie są zaznaczone jakie tabele zostały wykorzystane do stw
 
 - **fact_website_pageview** - łączy informacje o odwiedzanych stronach z informacjami o sesjach użytkowników;
 - **dim_session** - wszystkie sesje użytkowników jakie miały miejsce w okresie pobranych danych sprzedażowych;
-- **fact_orders** - zawiera informacje o sprzedaży uzupełnione o informacje z sesji uzytkownika dokującego zamówienie;
+- **fact_orders** - zawiera informacje o sprzedaży uzupełnione o informacje z sesji użytkownika dokującego zamówienie;
 - **fact_order_items** - przypisanie produktów do zamówień;
 - **fact_order_item_refunds** - zwrócone przedmioty przez klientów;
 - **dim_products** - informacje o produkcie;
@@ -154,23 +161,14 @@ Dane w Data Warehouse obejmują okres **od 2012-03-19 do 2015-03-19**
 
 W całym okresie konwersja wyniosła **6.8%**. Natomiast jak przyjrzymy się konwersji dla poszczególnych lat to można zauważyć systematyczny wzrost tego parametru.
 
-|  #  | year | conversion_rate_procent |
-| :-: | :--: | :---------------------: |
-|  1  | 2012 |           4,1           |
-|  2  | 2013 |           6,6           |
-|  3  | 2014 |           7,2           |
-|  4  | 2015 |           8,4           |
+![cr_plot](/toy_store/analysis/images/1_sessions.png)
 
 Plik źródłowy [1_sessions.sql](/toy_store/analysis/1_sessions.sql)
 
 ### 2. Jaki jest trend sesji oraz zamówień?
 
-|  #  | year | orders | sessions |
-| :-: | :--: | :----: | -------- |
-|  1  | 2012 |  2586  | 62470    |
-|  2  | 2013 |  7447  | 112781   |
-|  3  | 2014 | 16860  | 233422   |
-|  4  | 2015 |  5420  | 64198    |
+![orders_plot](/toy_store/analysis/images/2_session_orders_1.png)
+![sessions_plot](/toy_store/analysis/images/2_session_orders_2.png)
 
 Ilość zamówień i sesji na stronie rośnie. Rok 2014 pod tym względem odnotował najwyższe wartości. Dla roku 2015 mamy dane wyłączne do dnia 19 marca, które wskazują na bardzo dobre wyniki sprzedażowe w pierwszym kwartale.
 
@@ -195,7 +193,7 @@ Plik źródłowy [2_session_orders.sql](/toy_store/analysis/2_session_orders.sql
 - Należy zwrócić uwagę na to że wejścia bezpośrednie oraz z wyników wyszukiwań (bez kampanii) osiągnęły drugi wynik w kategorii ilości zamówień oraz odbytych sesji.
 - Kampanie marketingowe dla gshearch przyniosły najwyższe wyniki sprzedażowe.
 
-Plik źródłowy [3_marketing_channel.sql](/toy_store/analysis/3_marketing_channel.sql)
+Plik źródłowy [2_session_orders.sql](/toy_store/analysis/3_marketing_channel.sql)
 
 ### 4 Przychody
 
@@ -203,12 +201,7 @@ Plik źródłowy [3_marketing_channel.sql](/toy_store/analysis/3_marketing_chann
 
 #### 4.1 Jaki jest przychód rok do roku (YOY)?
 
-|  #  | year | total_revenue | yoy_growth_procent |
-| :-: | :--: | :-----------: | :----------------: |
-|  1  | 2012 |   120375.92   |         0          |
-|  2  | 2013 |   375655.33   |        212         |
-|  3  | 2014 |  1008698.42   |        169         |
-|  4  | 2015 |   324500.94   |        -68         |
+![yoy_revenues_plot](/toy_store/analysis/images/4.1_yoy_revenues.sql.png)
 
 - W 2012 mamy dane za ostatnie dziewięć miesięcy działalności sklepu, związku z tym wzrost w roku 2013 nie jest wskaźnikiem dokładanym.
 - Obliczony wzrost dla roku 2014 wskazuje na bardzo duży wzrost sprzedaży wynoszący 169%.
@@ -226,12 +219,7 @@ Plik źródłowy [4.2_mom_revenues.sql](/toy_store/analysis/4.2_mom_revenues.sql
 
 #### 4.3 Jak zmieniał się średni przychód na zamówienie (RPO)?
 
-|  #  | year |  rpo  | rpo_growth |
-| :-: | :--: | :---: | :--------: |
-|  1  | 2012 | 49,99 |     0      |
-|  2  | 2013 | 52,82 |    5,66    |
-|  3  | 2014 | 63,52 |   20,27    |
-|  4  | 2015 | 62,51 |   -1,59    |
+![rpo_yoy_plot](/toy_store/analysis/images/4.3_rpo.png)
 
 - Rok 2014 miał o 20% wyższy średni przychód na zamówienie niż rok 2013. Z tego wynika, że nie tylko nastąpił wzrost ilość zamówień, ale również wielkość koszyka uległa zmianie.
 - Rozpoczęty rok 2015 w pierwszym kwartale ma nieznacznie mniejszy średni przychód na zamówienie niż rok poprzedni.
@@ -240,10 +228,7 @@ Plik źródłowy [4.3_rpo.sql](/toy_store/analysis/4.3_rpo.sql)
 
 #### 4.4 Porównanie pierwszego kwartału 2014 i 2015 roku
 
-|  #  | year | Q1_orders_value | difference_quarter |
-| :-: | :--: | :-------------: | :----------------: |
-|  1  | 2014 |    181813.00    |         0          |
-|  2  | 2015 |    324500.94    |     142687.94      |
+![difference_quarter_2014_2015_plot](/toy_store/analysis/images/4.4_difference_quarter.sql.png)
 
 Plik źródłowy [4.4_difference_quarter.sql](/toy_store/analysis/4.4_difference_quarter.sql)
 
@@ -300,15 +285,14 @@ Do uruchomienia projektu należy mieć dostęp do Microsoft SQL Server na który
 3. Utwórz table dla bronze layer za pomocą skryptu [ddl_bronze.sql](/toy_store/bronze/ddl_bronze.sql).
 4. Utwórz procedurę składowaną dla bronze layer [proc_load_bronze.sql](/toy_store/bronze/proc_load_bronze.sql)
 
-5. Uruchom procedurę składowaną dla bronze layer na serwerze za pomocą komendy:
+5. Uruchom procedurę składowaną dla bronze layer na serwerze za pomocą komendy: <br><br>
+   Przykład ścieżki do folderu jaki należy umieścić w zmiennej @BasePath:<br> **'C:\Users\Jan Kowalski\Documents\Projekty'** <br>
+   Na końcu ścieżki nie umieszczaj backslasha.<br>
 
     ```SQL
     EXEC bronze.load_bronze
     @BasePath = 'path_to_project_folder';
     ```
-
-    Przykład ścieżki do folderu jaki nalezy umieścić w zmiennej @BasePath:<br> **'C:\Users\Jan Kowalski\Documents\Projekty'** <br>
-    Na końcu ścieżki nie umieszczaj backslasha.
 
 6. Utwórz table dla silver layer za pomocą skryptu [ddl_silver.sql](/toy_store/silver/ddl_silver.sql)
 7. Utwórz procedurę składowania dla silver layer [proc_load_silver.sql](/toy_store/silver/proc_load_silver.sql)
@@ -326,6 +310,7 @@ Do uruchomienia projektu należy mieć dostęp do Microsoft SQL Server na który
 toy_store
 |
 ├── analysis/                                 # Skrypty SQL zwiazane z analizą danych zawartych w DW.
+    ├── images/                               # Pliki z wykresami
 |   ├── 1_sessions.sql                        # Skrypt SQL wyliczający konwersję sesji na sprzedaż.
 |   ├── 2_session_orders.sql                  # Skrypt SQL wyliczający ilość zamówień i sesji w podziale na lata.
 |   ├── 3_marketing_channel.sql               # Skrypt SQL wyliczający ilość sesji przypadających na kampanie.
@@ -364,8 +349,9 @@ Do realizacji projektu zostały wykorzystanie następujące oprogramowanie:
 - VSCode wraz z rozszerzeniem:
     - SQL Server (mssql) - do komunikacji z serwerem SQL,
 - draw.io do tworzenia grafik schematów,
-- github do kontrolowania i przechowywania zmian w projekcie.
+- github do kontrolowania i przechowywania zmian w projekcie,
+- MS Excel do wykonania wykresów.
 
 ---
 
-[Inne projekty](/README.md)
+[**Inne projekty**](/README.md)
