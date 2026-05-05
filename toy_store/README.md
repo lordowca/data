@@ -245,7 +245,13 @@ Długoterminowe kampanie marketingowe tupu "non brand" zapewniły zwiększenie i
 |  3  |  The Birthday Sugar Panda  |    4985    |
 |  4  | The Hudson River Mini bear |    5018    |
 
-## Podsumowanie
+### 6 Wnioski końcowe
+
+1. W okresie od 2012-03-19 do 2015-03-19 z roku na rok widoczny jest bardzo duży wzrost w przychodach oraz w średnim przychodzie na zamówienie. Wskazuje to na dobre dobranie kampanii marketingowych, które ściągają klientów szukających zabawki pasującej do opisu głównego produktu The Original Mr. Fuzzy.
+2. Dane przychodów w ujęciu miesiąc do miesiąca wskazują, że rok 2015 rozpoczął się ze spadkiem przychodów. Mimo tej tendencji pierwszy kwartał roku 2015 ma większe przychody niż kwartał roku 2014. W poprzednich latach początek drugiego kwartału charakteryzował się wzrostem przychodów w ujęciu miesięcznym. Jeżeli tym razem nie zostanie odnotowany wzrost to należy zweryfikować założenia kampanii marketingowych.
+3. Kampanie krótko terminowe na social media maiły niższą konwersję sesji na zamówienia. Należałby przetestować te kampanie dla szerszego grona odbiorców niż użytkownicy komputerów.
+
+## Podsumowanie projektu
 
 ### 1. Wiedza i umiejetnosci
 
